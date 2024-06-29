@@ -29,3 +29,55 @@ form {
   height: 2rem;
   padding: 5px;
 }
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.dropdown-button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  width: 100%;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  left: 0;
+  box-sizing: border-box;
+}
+
+.dropdown-content .dropdown-item {
+  padding: 12px 16px;
+  cursor: pointer;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.dropdown-content .dropdown-item:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.submit-btn {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-radius: 3px;
+  color: white;
+  background-color: darkcyan;
+  width: 30%;
+  cursor: pointer;
+}
