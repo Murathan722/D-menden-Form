@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../css/formArea.css";
+import { useNavigate } from "react-router-dom";
 
 const initialValues = {
   firstName: "",
@@ -52,7 +53,9 @@ const FormArea = ({ formData, setFormData }) => {
           <label>
             First Name:{" "}
             <input
-              {...register("firstName", { required: "First name is required" })}
+              {...register("firstName", {
+                required: "Lütfen adınızı giriniz.",
+              })}
             />
             {errors.firstName && <p>{errors.firstName.message}</p>}
           </label>
@@ -62,7 +65,7 @@ const FormArea = ({ formData, setFormData }) => {
             Last Name:{" "}
             <input
               {...register("lastName", {
-                required: "Last name is required",
+                required: "Lütfen soyadınızı giriniz.",
               })}
             />
             {errors.lastName && <p>{errors.lastName.message}</p>}
@@ -71,7 +74,9 @@ const FormArea = ({ formData, setFormData }) => {
         <div className="input-area">
           <label>
             Email:{" "}
-            <input {...register("ePosta", { required: "Email is required" })} />
+            <input
+              {...register("ePosta", { required: "Email alanı zorunludur." })}
+            />
             {errors.ePosta && <p>{errors.ePosta.message}</p>}
           </label>
         </div>
@@ -83,7 +88,8 @@ const FormArea = ({ formData, setFormData }) => {
                 required: "Telefon is required",
                 pattern: {
                   value: /^[0-9]{10}$/,
-                  message: "Invalid phone number. Must be 10 digits.",
+                  message:
+                    "Telefon numaranız en fazla 10 karakter uzunluğunda olmalıdır.",
                 },
               })}
             />
