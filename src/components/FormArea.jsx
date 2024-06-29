@@ -39,9 +39,8 @@ const FormArea = ({ formData, setFormData }) => {
   };
 
   const onSubmit = (data) => {
-    const updatedData = { ...data, Yaş: selectedAge };
-    setFormData(updatedData);
-    console.log("Form submitted: ", updatedData);
+    setFormData(data);
+    console.log("Form submitted: ", formData);
     reset();
     setSelectedAge(null);
   };
@@ -112,7 +111,6 @@ const FormArea = ({ formData, setFormData }) => {
                 </div>
               )}
             </div>
-            {!selectedAge && errors.Yaş && <p>Yaş is required</p>}
           </label>
         </div>
         <button
