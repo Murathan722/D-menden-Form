@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import "../css/formArea.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // axios import edildi
 
 const initialValues = {
   firstName: "",
@@ -38,12 +39,21 @@ const FormArea = ({ formData, setFormData }) => {
   const toggleDropdown = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
   };
+  const navigate = useNavigate();
 
-  const onSubmit = (data) => {
-    setFormData(data);
-    console.log("Form submitted: ", formData);
+  const onSubmit = (formData) => {
+    setFormData(formData);
     reset();
     setSelectedAge(null);
+    axios
+      .post("https://jsonplaceholder.typicode.com/posts", formData)
+      .then((response) => {
+        console.log(response.data);
+        navigate("/AnaSayfa");
+      })
+      .catch((error) => {
+        console.error("Bir hata var!", error);
+      });
   };
 
   return (

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import FormArea from "./components/FormArea";
 import Click from "./components/Click";
+import AnaSayfa from "./components/AnaSayfa";
 
 function App() {
   const initialValues = {
@@ -18,8 +19,6 @@ function App() {
 
   const [formData, setFormData] = useState(initialValues);
 
-  console.log(formData);
-
   return (
     <Routes>
       <Route path="/" element={<Click />} />
@@ -27,6 +26,7 @@ function App() {
         path="/form"
         element={<FormArea formData={formData} setFormData={setFormData} />}
       />
+      <Route path="/Anasayfa" element={<AnaSayfa />} />
     </Routes>
   );
 }
